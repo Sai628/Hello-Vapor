@@ -8,6 +8,10 @@ drop.get { req in
     ])
 }
 
+drop.get("/hello") { _ in
+    return "Hello Vapor"
+}
+
 drop.resource("posts", PostController())
 
 drop.run()
