@@ -12,6 +12,10 @@ drop.get("/hello") { _ in
     return "Hello Vapor"
 }
 
+drop.get("/test") { request in
+    return "\(request)"
+}
+
 drop.resource("posts", PostController())
 
 drop.run()
