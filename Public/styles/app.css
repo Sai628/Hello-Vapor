@@ -44,6 +44,17 @@ body {
     font-size: 36px;
 }
 
+.message h4 {
+    display: inline-block;
+    margin: 0px 80px;
+    padding: 0;
+    line-height: 20px;
+    float: left;
+    font-family: 'Quicksand';
+    font-weight: 200;
+    font-size: 16px;
+}
+
 .message img {
     height: 100%;
     display: inline-block;
