@@ -41,6 +41,27 @@ drop.get("/name", ":name") { request in
 }
 
 
+drop.post("/validation") { request in
+    
+    do
+    {
+        let employee = try Employee(request: request)
+        print("employee email: \(employee.email.value)")
+        print("employee name: \(employee.name.value)")
+    }
+    catch let error as ValidationError<Email>
+    {
+        return "Email is invalid"
+    }
+    catch let error as ValidationError<Name>
+    {
+        return "Name is invalid"
+    }
+    
+    return "validation success"
+}
+
+
 drop.resource("posts", PostController())
 drop.middleware.append(RequestLogMiddleware())
 drop.middleware.append(APIVersionMiddleware())
