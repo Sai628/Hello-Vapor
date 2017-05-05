@@ -17,7 +17,7 @@ class APIVersionMiddleware: Middleware
     func respond(to request: Request, chainingTo next: Responder) throws -> Response
     {
         let response = try next.respond(to: request)
-        response.headers["API_VERSION"] = "v1.0"
+        response.headers["Api_version"] = "v1.0"
         
         return response
     }
