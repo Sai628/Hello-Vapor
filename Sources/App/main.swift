@@ -1,3 +1,11 @@
+//
+//  main.swift
+//  Hello-Vapor
+//
+//  Created by Sai on 03/05/2017.
+//
+//
+
 import Vapor
 
 
@@ -17,6 +25,11 @@ drop.get("/hello") { _ in
 }
 
 
+drop.get("/test") { request in
+    return "\(request)"
+}
+
+
 drop.get("/name", ":name") { request in
     
     if let name = request.parameters["name"]?.string
@@ -28,11 +41,8 @@ drop.get("/name", ":name") { request in
 }
 
 
-drop.get("/test") { request in
-    return "\(request)"
-}
-
-
 drop.resource("posts", PostController())
+drop.middleware.append(RequestLogMiddleware())
+drop.middleware.append(APIVersionMiddleware())
 
 drop.run()
