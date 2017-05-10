@@ -20,17 +20,17 @@ drop.get { req in
 }
 
 
-drop.get("/hello") { _ in
+drop.get("hello") { _ in
     return "Hello Vapor"
 }
 
 
-drop.get("/test") { request in
+drop.get("test") { request in
     return "\(request)"
 }
 
 
-drop.get("/name", ":name") { request in
+drop.get("name", ":name") { request in
     
     if let name = request.parameters["name"]?.string
     {
@@ -41,7 +41,7 @@ drop.get("/name", ":name") { request in
 }
 
 
-drop.post("/validation") { request in
+drop.post("validation") { request in
     
     do
     {
